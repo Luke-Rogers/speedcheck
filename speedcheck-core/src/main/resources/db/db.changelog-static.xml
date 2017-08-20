@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="201706301940" author="luke.rogers" context="static">
+        <insert tableName="SPEED_TEST">
+            <column name="STATUS" valueBoolean="true"/>
+            <column name="SPEED" valueNumeric="54.32"/>
+            <column name="TYPE" valueNumeric="0"/>
+            <column name="TIMESTAMP" valueDate="2017-06-01 12:00:00"/>
+        </insert>
+        <insert tableName="SPEED_TEST">
+            <column name="STATUS" valueBoolean="true"/>
+            <column name="SPEED" valueNumeric="15.32"/>
+            <column name="TYPE" valueNumeric="01"/>
+            <column name="TIMESTAMP" valueDate="2017-06-01 12:00:00"/>
+        </insert>
+        <insert tableName="SPEED_TEST">
+            <column name="STATUS" valueBoolean="true"/>
+            <column name="SPEED" valueNumeric="50.00"/>
+            <column name="TYPE" valueNumeric="0"/>
+            <column name="TIMESTAMP" valueDate="2017-06-01 13:00:00"/>
+        </insert>
+        <insert tableName="SPEED_TEST">
+            <column name="STATUS" valueBoolean="true"/>
+            <column name="SPEED" valueNumeric="11.00"/>
+            <column name="TYPE" valueNumeric="01"/>
+            <column name="TIMESTAMP" valueDate="2017-06-01 13:00:00"/>
+        </insert>
+        <insert tableName="SPEED_TEST">
+            <column name="STATUS" valueBoolean="true"/>
+            <column name="SPEED" valueNumeric="52.32"/>
+            <column name="TYPE" valueNumeric="0"/>
+            <column name="TIMESTAMP" valueDate="2017-06-01 14:00:00"/>
+        </insert>
+        <insert tableName="SPEED_TEST">
+            <column name="STATUS" valueBoolean="true"/>
+            <column name="SPEED" valueNumeric="17.32"/>
+            <column name="TYPE" valueNumeric="1"/>
+            <column name="TIMESTAMP" valueDate="2017-06-01 14:00:00"/>
+        </insert>
+        <insert tableName="SPEED_TEST">
+            <column name="STATUS" valueBoolean="true"/>
+            <column name="SPEED" valueNumeric="52.32"/>
+            <column name="TYPE" valueNumeric="0"/>
+            <column name="TIMESTAMP" valueDate="2017-06-01 15:00:00"/>
+        </insert>
+        <insert tableName="SPEED_TEST">
+            <column name="STATUS" valueBoolean="true"/>
+            <column name="SPEED" valueNumeric="17.32"/>
+            <column name="TYPE" valueNumeric="1"/>
+            <column name="TIMESTAMP" valueDate="2017-06-01 15:00:00"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

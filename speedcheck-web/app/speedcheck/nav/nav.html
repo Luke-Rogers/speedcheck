@@ -1,0 +1,83 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Menu" ng-disabled="false" ng-click="ctrl.toggleSidebar()">
+            <i class="material-icons">&#xE5D2;</i>
+        </md-button>
+        <h2 flex md-truncate>SPEED CHECK</h2>
+        <md-button class="md-icon-button test-tooltip" aria-label="Refresh">
+            <md-tooltip md-direction="left">
+                <strong>Average download:</strong> {{ctrl.results.averageDownload | number : 2}} Mb/s -
+                <strong>Average upload:</strong> {{ctrl.results.averageUpload | number : 2}} Mb/s -
+                <strong>Max download:</strong> {{ctrl.results.maxDownload}} Mb/s -
+                <strong>Max upload:</strong> {{ctrl.results.maxUpload}} Mb/s
+            </md-tooltip>
+            <i class="material-icons">&#xE88E;</i>
+        </md-button>
+    </div>
+</md-toolbar>
+
+<md-sidenav class="md-sidenav-left" md-component-id="left"
+            md-disable-backdrop md-whiteframe="4">
+
+    <md-toolbar class="md-theme-blue" layout="row">
+        <h1 class="md-toolbar-tools">Options</h1>
+        <div layout="row" layout-align="center center">
+            <md-button class="md-icon-button" aria-label="Menu Close" ng-click="ctrl.toggleSidebar()">
+                <i class="material-icons">&#xE14C;</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-content layout-margin>
+        <div layout-margin>
+            <h4>Speed Test</h4>
+            <div layout="column" layout-margin>
+                <md-radio-group ng-model="ctrl.testType">
+                    <md-radio-button value="BOTH">Download &amp; Upload</md-radio-button>
+                    <md-radio-button value="DOWNLOAD">Download</md-radio-button>
+                    <md-radio-button value="UPLOAD">Upload</md-radio-button>
+                </md-radio-group>
+                <div layout="column" layout-align="center end">
+                    <div layout="row" layout-align="center center">
+                        <md-progress-circular ng-show="ctrl.testing" class="md-hue-2"
+                                              md-diameter="20px"></md-progress-circular>
+                        <md-button class="md-raised md-primary" ng-click="ctrl.runTest()"
+                                   ng-disabled="ctrl.testing || !ctrl.testType">Run
+                            test
+                        </md-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div layout-margin>
+            <h4>Filter Results</h4>
+            <div layout="column" layout-margin>
+                <div flex>
+                    <p>From date</p>
+                    <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                </div>
+                <div flex>
+                    <p>To date</p>
+                    <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                </div>
+                <div flex>
+                    <p>Type</p>
+                    <md-select ng-model="ctrl.filters.type">
+                        <md-option ng-value=""><em>None</em></md-option>
+                        <md-option ng-repeat="option in ctrl.filterTypeOptions" ng-value="option.type">
+                            {{option.name}}
+                        </md-option>
+                    </md-select>
+                </div>
+            </div>
+            <div>
+                <div layout="column" layout-align="center end">
+                    <md-button class="md-raised md-primary" ng-click="ctrl.filter()">
+                        Filter
+                    </md-button>
+                </div>
+            </div>
+        </div>
+    </md-content>
+
+</md-sidenav>
