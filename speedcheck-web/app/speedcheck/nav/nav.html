@@ -31,12 +31,15 @@
     <md-content layout-margin>
         <div layout-margin>
             <h4>Speed Test</h4>
-            <div layout="column" layout-margin>
-                <md-radio-group ng-model="ctrl.testType">
-                    <md-radio-button value="BOTH">Download &amp; Upload</md-radio-button>
-                    <md-radio-button value="DOWNLOAD">Download</md-radio-button>
-                    <md-radio-button value="UPLOAD">Upload</md-radio-button>
-                </md-radio-group>
+            <div layout="column">
+                <md-input-container class="md-block">
+                    <label>Test Type</label>
+                    <md-select ng-model="ctrl.testType">
+                        <md-option ng-repeat="option in ctrl.testTypeOptions" ng-value="option.type">
+                            {{option.name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
                 <div layout="column" layout-align="center end">
                     <div layout="row" layout-align="center center">
                         <md-progress-circular ng-show="ctrl.testing" class="md-hue-2"
@@ -51,24 +54,26 @@
         </div>
         <div layout-margin>
             <h4>Filter Results</h4>
-            <div layout="column" layout-margin>
-                <div flex>
-                    <p>From date</p>
-                    <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
-                </div>
-                <div flex>
-                    <p>To date</p>
-                    <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
-                </div>
-                <div flex>
-                    <p>Type</p>
+            <div layout="column">
+                <md-input-container>
+                    <label>From date</label>
+                    <md-datepicker name="fromDate" ng-model="ctrl.filters.fromDate" md-max-date="ctrl.filters.toDate"
+                                   md-open-on-focus md-hide-icons="calendar"></md-datepicker>
+                </md-input-container>
+                <md-input-container>
+                    <label>To date</label>
+                    <md-datepicker ng-model="ctrl.filters.toDate" md-min-date="ctrl.filters.fromDate" md-open-on-focus
+                                   md-hide-icons="calendar"></md-datepicker>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Type</label>
                     <md-select ng-model="ctrl.filters.type">
                         <md-option ng-value=""><em>None</em></md-option>
                         <md-option ng-repeat="option in ctrl.filterTypeOptions" ng-value="option.type">
                             {{option.name}}
                         </md-option>
                     </md-select>
-                </div>
+                </md-input-container>
             </div>
             <div>
                 <div layout="column" layout-align="center end">

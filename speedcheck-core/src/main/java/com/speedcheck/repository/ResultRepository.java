@@ -16,6 +16,12 @@ public class ResultRepository extends BaseRepository<Result> {
         if (filters.getType() != null) {
             criteria = criteria.add(Restrictions.eq("type", filters.getType()));
         }
+        if (filters.getFromDate() != null) {
+            criteria = criteria.add(Restrictions.ge("timestamp", filters.getFromDate()));
+        }
+        if (filters.getToDate() != null) {
+            criteria = criteria.add(Restrictions.le("timestamp", filters.getToDate()));
+        }
         return criteria.list();
     }
 

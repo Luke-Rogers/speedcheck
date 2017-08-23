@@ -1,6 +1,12 @@
 import navTemplate from './nav.html';
 "use strict"
 
+const TEST_OPTIONS = [
+    {"type": "BOTH", "name": "Download & Upload"},
+    {"type": "DOWNLOAD", "name": "Download"},
+    {"type": "UPLOAD", "name": "Upload"}
+];
+
 const FILTER_OPTIONS = [
     {"type": "DOWNLOAD", "name": "Download"},
     {"type": "UPLOAD", "name": "Upload"}
@@ -12,6 +18,7 @@ class Ctrl {
         this.speedcheckService = speedcheckService;
         this.$mdSidenav = $mdSidenav;
         this.filterTypeOptions = FILTER_OPTIONS;
+        this.testTypeOptions = TEST_OPTIONS;
         this.showSummaryTooltip = false;
     }
 

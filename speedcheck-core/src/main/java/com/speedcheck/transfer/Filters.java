@@ -23,4 +23,12 @@ public class Filters {
     public TEST_TYPE getType() {
         return type;
     }
+
+    public Date getFromDate() {
+        return fromDate;
+    }
+
+    public Date getToDate() {
+        return toDate;
+    }
 }
