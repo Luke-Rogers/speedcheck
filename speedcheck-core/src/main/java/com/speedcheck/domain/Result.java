@@ -1,4 +1,4 @@
-package com.speedcheck.model;
+package com.speedcheck.domain;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -66,6 +66,16 @@ public class Result {
     }
 
     public enum TYPE {
-        DOWNLOAD, UPLOAD
+        DOWNLOAD("Download"), UPLOAD("Upload");
+
+        String desc;
+
+        TYPE(String desc) {
+            this.desc = desc;
+        }
+
+        public String getDesc() {
+            return this.desc;
+        }
     }
 }

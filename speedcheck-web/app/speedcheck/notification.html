@@ -1,0 +1,8 @@
+<md-toast>
+    <div class="md-toast-content" flex-offset="5">
+        <i ng-if="ctrl.notificationData.testType === 'DOWNLOAD'" class="material-icons">&#xE2C4;</i>
+        <i ng-if="ctrl.notificationData.testType === 'UPLOAD'" class="material-icons">&#xE2C6;</i>
+        <p flex-offset="10">Test Complete: {{ctrl.notificationData.speed | number : 2 }} Mb/s
+        <p>
+    </div>
+</md-toast>

@@ -9,7 +9,3 @@ A simple web application to monitor internet connection bandwidth on a scheduled
 * H2
 * AngularJS
 * Webpack
-
-### Build
-
-### Development

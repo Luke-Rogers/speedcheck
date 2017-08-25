@@ -1,8 +1,13 @@
+import angular from 'angular';
 import d3 from "d3";
 import speedcheckTemplate from './speedcheck.html';
+import notificationTemplate from './notification.html';
+import Stomp from "stompjs";
+import SockJS from "sockjs-client";
 "use strict"
 
 const DOWNLOAD = 'DOWNLOAD', UPLOAD = 'UPLOAD';
+const TOAST_DELAY = 5000;
 
 let options = {
     chart: {
@@ -45,16 +50,18 @@ let options = {
 
 class Ctrl {
 
-    constructor($http, $filter, speedcheckService, $mdSidenav) {
+    constructor($http, $filter, speedcheckService, $mdSidenav, $mdToast) {
         this.$http = $http;
         this.$filter = $filter;
         this.speedcheckService = speedcheckService;
         this.options = options;
         this.$mdSidenav = $mdSidenav;
+        this.$mdToast = $mdToast;
     }
 
     $onInit() {
         this.getData();
+        this.connectSocket();
     }
 
     getData() {
@@ -89,6 +96,32 @@ class Ctrl {
         });
     }
 
+    showNotification() {
+        this.$mdToast.show({
+            template: notificationTemplate,
+            controller: function Ctrl() {},
+            controllerAs: 'ctrl',
+            bindToController: true,
+            position: "top right",
+            hideDelay: TOAST_DELAY,
+            locals: {
+                notificationData : this.notificationData
+            }
+        });
+    }
+
+    connectSocket() {
+        let socket = new SockJS('/speedcheck-websocket');
+        let stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, () => {
+            stompClient.subscribe('/topic/speedtest', payload => {
+                this.notificationData = angular.fromJson(payload.body);
+                this.showNotification();
+            });
+        });
+
+    }
 }
 
 const definition = {
@@ -97,5 +130,5 @@ const definition = {
     controllerAs: 'ctrl'
 }
 
-Ctrl.$inject = ['$http', '$filter', 'speedcheckService', '$mdSidenav'];
+Ctrl.$inject = ['$http', '$filter', 'speedcheckService', '$mdSidenav', '$mdToast'];
 export default definition;

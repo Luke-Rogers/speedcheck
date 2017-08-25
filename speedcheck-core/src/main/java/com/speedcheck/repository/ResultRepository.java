@@ -1,6 +1,6 @@
 package com.speedcheck.repository;
 
-import com.speedcheck.model.Result;
+import com.speedcheck.domain.Result;
 import com.speedcheck.transfer.Filters;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;

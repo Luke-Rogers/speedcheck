@@ -1,6 +1,7 @@
 package com.speedcheck.job;
 
 import com.speedcheck.service.SpeedTestService;
+import com.speedcheck.service.SpeedTestService.TEST_TYPE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,7 @@ public class SpeedTestJob {
 
     //    @Scheduled(cron = "0 * * * * *")
     public void runScheduledTest() throws InterruptedException {
-        speedTestService.test(SpeedTestService.TEST_TYPE.BOTH);
+        speedTestService.test(TEST_TYPE.BOTH);
     }
 
 

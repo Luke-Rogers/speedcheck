@@ -32,6 +32,11 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
         </dependency>
@@ -46,12 +51,6 @@
             <groupId>fr.bmartel</groupId>
             <artifactId>jspeedtest</artifactId>
             <version>1.30.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.jakewharton.byteunits</groupId>
-            <artifactId>byteunits</artifactId>
-            <version>0.9.1</version>
         </dependency>
 
         <dependency>

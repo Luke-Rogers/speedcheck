@@ -1,6 +1,6 @@
 package com.speedcheck.transfer;
 
-import com.speedcheck.model.Result;
+import com.speedcheck.domain.Result;
 
 import java.util.Collection;
 import java.util.DoubleSummaryStatistics;

@@ -56,7 +56,7 @@ module.exports = {
         "eqeqeq": "error",
         "for-direction": "error",
         "func-call-spacing": "error",
-        "func-name-matching": "error",
+        "func-name-matching": "off",
         "func-names": [
             "error",
             "as-needed"
@@ -111,7 +111,7 @@ module.exports = {
         "no-div-regex": "error",
         "no-duplicate-imports": "error",
         "no-else-return": "error",
-        "no-empty-function": "error",
+        "no-empty-function": "off",
         "no-eq-null": "error",
         "no-eval": "error",
         "no-extend-native": "error",
@@ -222,7 +222,7 @@ module.exports = {
         "quotes": "off",
         "radix": "error",
         "require-await": "error",
-        "require-jsdoc": "error",
+        "require-jsdoc": "off",
         "rest-spread-spacing": "error",
         "semi": "off",
         "semi-spacing": "error",

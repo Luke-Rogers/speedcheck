@@ -18,7 +18,8 @@ module.exports = {
 
   devServer: {
       proxy: {
-        '/api': 'http://localhost:8080/'
+        '/api': 'http://localhost:8080/',
+        '/speedcheck-websocket': 'http://localhost:8080/'
       }
   },
 
@@ -61,12 +62,6 @@ module.exports = {
               failOnError: true,
               failOnWarning: false,
             }
-          },
-          {
-              test: /\.js$/,
-              loader: "eslint-loader",
-              enforce: "pre",
-              exclude: /(node_modules)/
           }
         ]
     },
