@@ -18,31 +18,31 @@ module.exports = {
 
   devServer: {
       proxy: {
-        '/api': 'http://localhost:8080/',
-        '/speedcheck-websocket': 'http://localhost:8080/'
+          '/api': 'http://localhost:8080/',
+          '/speedcheck-websocket': 'http://localhost:8080/'
       }
   },
 
   module: {
       rules: [
           {
-            test: /\.js$/,
-            exclude: /(node_modules)/,
-            use: {
-              loader: 'babel-loader',
-              options: {
-                presets: ['env']
+              test: /\.js$/,
+              exclude: /(node_modules)/,
+              use: {
+                  loader: 'babel-loader',
+                  options: {
+                  presets: ['env']
+                  }
               }
-            }
           },
           {
-            test: /\.(html)$/,
-            use: {
-              loader: 'html-loader',
-              options: {
-                minimize : true
+              test: /\.(html)$/,
+              use: {
+                  loader: 'html-loader',
+                  options: {
+                    minimize : true
+                  }
               }
-            }
           },
           {
               test: /\.css$/,
@@ -53,15 +53,15 @@ module.exports = {
               loader: 'file-loader?name=public/fonts/[name].[ext]'
           },
           {
-            test: /\.html$/,
-            loader: "htmllint-loader",
-            enforce: "pre",
-            exclude: /(node_modules)/,
-            query: {
-              config: '.htmllintrc',
-              failOnError: true,
-              failOnWarning: false,
-            }
+              test: /\.html$/,
+              loader: "htmllint-loader",
+              enforce: "pre",
+              exclude: /(node_modules)/,
+              query: {
+                  config: '.htmllintrc',
+                  failOnError: true,
+                  failOnWarning: false,
+              }
           }
         ]
     },
@@ -69,9 +69,9 @@ module.exports = {
     plugins: [
       new CleanWebpackPlugin([BUILD_PATH], {}),
       new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery",
-        "window.jQuery": "jquery"
+          $: "jquery",
+          jQuery: "jquery",
+          "window.jQuery": "jquery"
       })
     ]
 
