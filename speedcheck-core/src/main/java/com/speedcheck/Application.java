@@ -7,9 +7,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.annotation.PostConstruct;
 import javax.persistence.EntityManagerFactory;
-import java.util.TimeZone;
 
 @SpringBootApplication
 @EnableScheduling
@@ -18,11 +16,6 @@ public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-    }
-
-    @PostConstruct
-    void started() {
-        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
     }
 
     @Bean

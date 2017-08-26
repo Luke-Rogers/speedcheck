@@ -4,17 +4,18 @@ import com.speedcheck.domain.Result;
 
 import java.util.Collection;
 import java.util.DoubleSummaryStatistics;
+import java.util.stream.Collectors;
 
 public class Results {
 
-    private final Collection<Result> results;
+    private final Collection<TestResult> results;
     private final double averageDownload;
     private final double averageUpload;
     private final double maxDownload;
     private final double maxUpload;
 
     public Results(Collection<Result> results) {
-        this.results = results;
+        this.results = results.stream().map(result -> TestResult.from(result)).collect(Collectors.toList());
 
         if (results.stream().anyMatch(result -> Result.TYPE.DOWNLOAD.equals(result.getType()))) {
             final DoubleSummaryStatistics downloadStatistics = getStatistics(Result.TYPE.DOWNLOAD);
@@ -40,11 +41,11 @@ public class Results {
         return results
                 .stream()
                 .filter(result -> result.getType().equals(type))
-                .mapToDouble(Result::getSpeed)
+                .mapToDouble(TestResult::getSpeed)
                 .summaryStatistics();
     }
 
-    public Collection<Result> getResults() {
+    public Collection<TestResult> getResults() {
         return results;
     }
 

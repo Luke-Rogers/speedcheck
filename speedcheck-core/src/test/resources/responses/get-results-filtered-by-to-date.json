@@ -2,14 +2,14 @@
   "results": [
     {
       "id": 1,
-      "timestamp": 1496314800000,
+      "timestamp": "2017-06-01 11:06:00",
       "status": true,
       "type": "DOWNLOAD",
       "speed": 55.0
     },
     {
       "id": 2,
-      "timestamp": 1496314800000,
+      "timestamp": "2017-06-01 11:06:00",
       "status": true,
       "type": "UPLOAD",
       "speed": 15.0
