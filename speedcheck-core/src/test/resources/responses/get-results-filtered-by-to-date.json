@@ -1,0 +1,22 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "timestamp": 1496314800000,
+      "status": true,
+      "type": "DOWNLOAD",
+      "speed": 55.0
+    },
+    {
+      "id": 2,
+      "timestamp": 1496314800000,
+      "status": true,
+      "type": "UPLOAD",
+      "speed": 15.0
+    }
+  ],
+  "averageDownload": 55.0,
+  "averageUpload": 15.0,
+  "maxDownload": 55.0,
+  "maxUpload": 15.0
+}

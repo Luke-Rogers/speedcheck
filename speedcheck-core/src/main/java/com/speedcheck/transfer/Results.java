@@ -16,13 +16,24 @@ public class Results {
     public Results(Collection<Result> results) {
         this.results = results;
 
-        final DoubleSummaryStatistics downloadStatistics = getStatistics(Result.TYPE.DOWNLOAD);
-        averageDownload = downloadStatistics.getAverage();
-        maxDownload = downloadStatistics.getMax();
+        if (results.stream().anyMatch(result -> Result.TYPE.DOWNLOAD.equals(result.getType()))) {
+            final DoubleSummaryStatistics downloadStatistics = getStatistics(Result.TYPE.DOWNLOAD);
+            averageDownload = downloadStatistics.getAverage();
+            maxDownload = downloadStatistics.getMax();
+        } else {
+            averageDownload = 0.0;
+            maxDownload = 0.0;
+        }
 
-        final DoubleSummaryStatistics uploadStatistics = getStatistics(Result.TYPE.UPLOAD);
-        averageUpload = uploadStatistics.getAverage();
-        maxUpload = uploadStatistics.getMax();
+        if (results.stream().anyMatch(result -> Result.TYPE.UPLOAD.equals(result.getType()))) {
+            final DoubleSummaryStatistics uploadStatistics = getStatistics(Result.TYPE.UPLOAD);
+            averageUpload = uploadStatistics.getAverage();
+            maxUpload = uploadStatistics.getMax();
+        } else {
+            averageUpload = 0.0;
+            maxUpload = 0.0;
+        }
+
     }
 
     private DoubleSummaryStatistics getStatistics(Result.TYPE type) {
