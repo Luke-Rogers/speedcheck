@@ -17,6 +17,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -69,7 +71,7 @@ public class ResultsControllerTest {
         mvc.perform(post("/api/results")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(asJson(new Filters(null, new Date(1496836800000L), null))))
+                .content(asJson(new Filters(null, Date.from(LocalDate.of(2017, 6, 7).atStartOfDay(ZoneId.systemDefault()).toInstant()), null))))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(content().json(getResponseJson("get-results-filtered-by-from-date.json")));
@@ -80,7 +82,7 @@ public class ResultsControllerTest {
         mvc.perform(post("/api/results")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(asJson(new Filters(null, null, new Date(1496314800000L)))))
+                .content(asJson(new Filters(null, null, Date.from(LocalDate.of(2017, 6, 2).atStartOfDay(ZoneId.systemDefault()).toInstant())))))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(content().json(getResponseJson("get-results-filtered-by-to-date.json")));

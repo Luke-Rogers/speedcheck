@@ -71,6 +71,7 @@
             <artifactId>speedcheck-web</artifactId>
             <version>${project.version}</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -78,6 +79,13 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>-Duser.timezone=UTC</argLine>
+                </configuration>
             </plugin>
         </plugins>
     </build>

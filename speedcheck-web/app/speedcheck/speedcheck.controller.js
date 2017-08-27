@@ -90,7 +90,7 @@ class Ctrl {
             return r.type === type
         }).map(item => {
             return {
-                x: item.timestamp,
+                x: new Date(item.timestamp),
                 y: item.speed
             };
         });

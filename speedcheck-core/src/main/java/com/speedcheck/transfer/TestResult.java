@@ -1,7 +1,5 @@
 package com.speedcheck.transfer;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.util.Date;
 
 public class TestResult {
@@ -27,7 +25,6 @@ public class TestResult {
         return id;
     }
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:MM:SS", timezone = "UTC")
     public Date getTimestamp() {
         return timestamp;
     }
