@@ -4,10 +4,9 @@ import com.speedcheck.service.ResultsService;
 import com.speedcheck.transfer.Filters;
 import com.speedcheck.transfer.Results;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
 
 @RestController
 @RequestMapping("/api/results")
@@ -28,5 +27,10 @@ public class ResultController {
     @RequestMapping(method = RequestMethod.POST)
     public Results getFilteredResults(@RequestBody Filters filters) {
         return resultsService.getFilteredResults(filters);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public void deleteResults(@RequestParam("id") Collection<Integer> toDelete) {
+        resultsService.deleteResults(toDelete);
     }
 }

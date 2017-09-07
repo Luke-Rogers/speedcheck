@@ -15,6 +15,14 @@ class ResultsService {
         return this.$http.get('/api/test?type=' + type);
     }
 
+    deleteResults(toDelete) {
+        return this.$http.delete('/api/results', {
+            params: {
+                id: toDelete
+            }
+        }).then(response => response.data);
+    }
+
     setFilters(filters) {
         this.filters = filters;
     }

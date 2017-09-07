@@ -25,6 +25,13 @@ public class ResultRepository extends BaseRepository<Result> {
         return criteria.list();
     }
 
+    public void deleteResults(final Collection<Integer> toDelete) {
+        getSession()
+            .createQuery("delete from Result r where r.id in :ids")
+            .setParameterList("ids", toDelete)
+            .executeUpdate();
+    }
+
     @Override
     protected Class<Result> getType() {
         return Result.class;

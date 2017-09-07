@@ -40,7 +40,7 @@ public class Results {
     private DoubleSummaryStatistics getStatistics(Result.TYPE type) {
         return results
                 .stream()
-                .filter(result -> result.getType().equals(type))
+                .filter(result -> result.getType().equals(type) && result.isStatus())
                 .mapToDouble(TestResult::getSpeed)
                 .summaryStatistics();
     }

@@ -15,14 +15,6 @@
 
 <div layout="column">
     <md-card>
-        <md-card-header>
-            <md-card-avatar>
-                <i class="material-icons">&#xE873;</i>
-            </md-card-avatar>
-            <md-card-header-text>
-                <span class="md-title">Data Table</span>
-            </md-card-header-text>
-        </md-card-header>
-        <rrtable results="ctrl.results"></rrtable>
+        <rrtable refresh-data="ctrl.getData()" results="ctrl.results"></rrtable>
     </md-card>
 </div>

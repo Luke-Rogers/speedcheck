@@ -6,6 +6,8 @@ import com.speedcheck.transfer.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+
 @Service
 public class ResultsService {
 
@@ -25,4 +27,7 @@ public class ResultsService {
         return new Results(resultRepository.findFiltered(filters));
     }
 
+    public void deleteResults(final Collection<Integer> toDelete) {
+        resultRepository.deleteResults(toDelete);
+    }
 }

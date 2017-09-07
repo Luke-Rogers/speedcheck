@@ -1,15 +1,17 @@
 package com.speedcheck.transfer;
 
+import com.speedcheck.domain.Result;
+
 import java.util.Date;
 
 public class TestResult {
     private final int id;
     private final Date timestamp;
     private final boolean status;
-    private final com.speedcheck.domain.Result.TYPE type;
+    private final Result.TYPE type;
     private final double speed;
 
-    public TestResult(int id, Date timestamp, boolean status, com.speedcheck.domain.Result.TYPE type, double speed) {
+    public TestResult(int id, Date timestamp, boolean status, Result.TYPE type, double speed) {
         this.id = id;
         this.timestamp = timestamp;
         this.status = status;
@@ -17,7 +19,7 @@ public class TestResult {
         this.speed = speed;
     }
 
-    public static TestResult from(com.speedcheck.domain.Result result) {
+    public static TestResult from(Result result) {
         return new TestResult(result.getId(), result.getTimestamp(), result.isStatus(), result.getType(), result.getSpeed());
     }
 
@@ -33,7 +35,7 @@ public class TestResult {
         return status;
     }
 
-    public com.speedcheck.domain.Result.TYPE getType() {
+    public Result.TYPE getType() {
         return type;
     }
 

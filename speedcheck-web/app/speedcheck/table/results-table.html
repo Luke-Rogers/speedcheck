@@ -1,5 +1,17 @@
+<md-toolbar class="md-table-toolbar md-default">
+    <div class="md-toolbar-tools">
+        <span>Data Table</span>
+        <div flex="" class="flex"></div>
+        <md-button class="md-icon-button" aria-label="Refresh" ng-click="ctrl.refreshData()">
+            <i class="material-icons">&#xE5D5;</i>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="Delete" ng-disabled="ctrl.selected.length === 0" ng-click="ctrl.deleteRecord()">
+            <i class="material-icons">&#xE872;</i>
+        </md-button>
+    </div>
+</md-toolbar>
 <md-table-container>
-    <table md-table>
+    <table md-table md-row-select multiple="true" ng-model="ctrl.selected">
         <thead md-head md-order="ctrl.query.order">
         <tr md-row>
             <th md-column md-order-by="id"><span>Test ID</span></th>
@@ -11,7 +23,8 @@
         </thead>
         <tbody md-body>
         <tr md-row
-            ng-repeat="result in ctrl.results.results | orderBy: ctrl.query.order | limitTo: ctrl.query.limit: (ctrl.query.page - 1) * ctrl.query.limit">
+            ng-repeat="result in ctrl.results.results | orderBy: ctrl.query.order | limitTo: ctrl.query.limit: (ctrl.query.page - 1) * ctrl.query.limit"
+            md-select="result.id" md-auto-select>
             <td md-cell>{{result.id}}</td>
             <td md-cell>{{result.timestamp | date:'short'}}</td>
             <td md-cell>
